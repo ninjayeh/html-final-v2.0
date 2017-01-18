@@ -1,0 +1,64 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  
+	  <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
+
+    <body>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+	  
+	  
+	  <h2 class="major">痞客幫</h2>
+								<script>
+								var xmlhttp = new XMLHttpRequest();
+								var url = "https://emma.pixnet.cc/mainpage/blog/categories/hot/21?page=1&per_page=10&api_version=2&format=json";
+								xmlhttp.onreadystatechange = function() {
+									if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+										var myArr = JSON.parse(xmlhttp.responseText);
+										myFunction(myArr);
+									}
+								}
+								xmlhttp.open("GET", url, true);
+								xmlhttp.send();
+								function myFunction(arr) {
+									var data = arr.articles;
+									var out = "";
+									var i;
+									for (i = 0; i < data.length; i++) {
+										
+										out += 	'<li class="collection-item avatar"><img src="'+data[i].thumb+ '"alt="" class="circle">\
+											<span class="title">'+'<font color="green">'+data[i].title+'</font>'+'</span>'+'<p>'+'<font color="black">'+data[i].summary+'<br>';
+											
+											
+											if ( data[i].tags.length != 0 )
+											{
+											out +='<b>'+'<font color="black">'+'Tags: '+'</b>';
+											for (j = 0; j < data[i].tags.length; j++) {
+												
+												out += data[i].tags[j].tag + ', '};
+											}	
+										out +='</p>\<a href="'+data[i].link+'" class="secondary-content"><i class="material-icons">grade</i></a></li>';
+										
+										
+									}
+									document.getElementById("pixnet-stuff").innerHTML = out;
+								}
+								</script>
+								<ul class="collection" id="pixnet-stuff">			
+								</ul> 
+    </body>
+  </html>

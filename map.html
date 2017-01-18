@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+	
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
+  </head>
+  <body>
+  <font size='10'><p align="center">如果你想翹課卻不知道去哪裡?～～</p>
+    <div id="map" style="position:absolute;top:170px;left:500px; width: 900px; height: 750px"></div>
+    <script>
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 24.119857, lng: 120.674302},
+    zoom: 16
+  });
+  
+  var marker1 = new google.maps.Marker({
+    position: {lat: 24.114558, lng: 120.674592},
+    map: map,
+    title: '加菲貓網路'
+  });
+  
+  
+  
+  var marker2 = new google.maps.Marker({
+    position: {lat: 24.125031, lng: 120.675047},
+    map: map,
+    title: '獵網高手-中興店'
+  });
+  
+  var marker3 = new google.maps.Marker({
+    position: {lat: 24.126256, lng: 120.675033},
+    map: map,
+    title: '吉吉網路生活館-中興店'
+  });
+  
+  var marker4 = new google.maps.Marker({
+    position: {lat: 24.113855, lng: 120.676365},
+    map: map,
+    title: 'Kk網路休閒館'
+  });
+
+  
+  var marker5 = new google.maps.Marker({
+    position: {lat: 24.115938, lng: 120.683829},
+    map: map,
+    title: '肯特城'
+  });
+  
+  var contentString1 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading"><font color="black">加菲貓網路</h1>'+
+      '<div id="bodyContent">'+
+      '<p>412台中市大里區爽文路1128號</p>'+
+      '<p><a href="stv1.html">點擊觀看街景</a></p>'+
+      '</div>'+
+      '</div>';
+  
+  var infowindow1 = new google.maps.InfoWindow({
+    content: contentString1
+  });
+  
+  marker1.addListener('click', function() {
+    infowindow1.open(map, marker1);
+  });
+  
+  var contentString2 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading"><font color="black">獵網高手-中興店</h1>'+
+      '<div id="bodyContent">'+
+      '<p>40248台中市南區學府路55-1號</p>'+
+      '<p><a href="stv2.html">點擊觀看街景</a></p>'+
+      '</div>'+
+      '</div>';
+  
+  var infowindow2 = new google.maps.InfoWindow({
+    content: contentString2
+  });
+  
+  marker2.addListener('click', function() {
+    infowindow2.open(map, marker2);
+  });
+  
+  var contentString3 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading"><font color="black">吉吉網路生活館-中興店</h1>'+
+      '<div id="bodyContent">'+
+      '<p>402台中市南區學府路79號2樓</p>'+
+      '<p><a href="stv3.html">點擊觀看街景</a></p>'+
+      '</div>'+
+      '</div>';
+  
+  var infowindow3 = new google.maps.InfoWindow({
+    content: contentString3
+  });
+  
+  marker3.addListener('click', function() {
+    infowindow3.open(map, marker3);
+  });
+  
+  var contentString4 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading"><font color="black">Kk網路休閒館</h1>'+
+      '<div id="bodyContent">'+
+      '<p>412台中市大里區永隆路452號</p>'+
+      '<p><a href="stv4.html">點擊觀看街景</a></p>'+
+      '</div>'+
+      '</div>';
+  
+  var infowindow4 = new google.maps.InfoWindow({
+    content: contentString4
+  });
+  
+  marker4.addListener('click', function() {
+    infowindow4.open(map, marker4);
+  });
+  
+  var contentString5 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading"><font color="black">肯特城</h1>'+
+      '<div id="bodyContent">'+
+      '<p>412台中市大里區益民路二段387號</p>'+
+      '<p><a href="stv5.html">點擊觀看街景</a></p>'+
+      '</div>'+
+      '</div>';
+  
+  var infowindow5 = new google.maps.InfoWindow({
+    content: contentString5
+  });
+  
+  marker5.addListener('click', function() {
+    infowindow5.open(map, marker5);
+  });
+  
+}
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYvdvwb6-13cF8_2yaB9r8WmStpIBXuV8&signed_in=true&callback=initMap"
+        async defer></script>
+  </body>
+</html>
